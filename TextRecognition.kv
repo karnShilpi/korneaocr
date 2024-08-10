@@ -1,0 +1,48 @@
+ScreenDisplay:
+
+<ScreenDisplay>:
+    orientation: 'vertical'
+
+    
+
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: dp(10)
+        spacing: dp(10)
+
+        Image:
+            source: root.file_path
+            allow_stretch: True
+            keep_ratio: False
+            size_hint_x: 0.6
+
+        ScrollView:
+            id: scroll
+            bar_width: "20"
+            scroll_type: ['bars', 'content']
+            GridLayout:
+                id: grid_layout
+                cols: 2
+                row_default_height: '40dp'
+                size_hint_y: None
+                height: self.minimum_height
+                padding: [10, 10, 10, 10]
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(56)
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDRaisedButton:
+            text: "Select Image"
+            on_press: root.select_image()
+
+        MDRaisedButton:
+            text: "Detect Information"
+            on_press: root.detect_words()
+
+        MDRaisedButton:
+            text: "Download CSV"
+            on_press: root.download_csv()
